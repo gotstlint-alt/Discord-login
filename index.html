@@ -17,22 +17,20 @@
         justify-content: center;
         align-items: center;
         padding: 20px;
-        padding-bottom: 80px; /* Empurra o conteúdo um pouco pra cima */
+        padding-bottom: 60px; /* Sobe o conteúdo um pouco */
     }
     
     .login-box {
         width: 100%;
         max-width: 420px;
-        display: flex;
-        flex-direction: column;
     }
 
     .header-logo {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        margin-bottom: 16px; /* Mais apertado */
+        gap: 6px;
+        margin-bottom: 20px;
     }
     .header-logo svg {
         width: 34px;
@@ -40,7 +38,7 @@
         fill: #fff;
     }
     .header-logo span {
-        font-size: 22px;
+        font-size: 24px;
         font-weight: 700;
         color: #fff;
         letter-spacing: -0.5px;
@@ -56,39 +54,41 @@
 
     p {
         color: #b5bac1;
-        font-size: 15px;
-        margin-bottom: 18px; /* Mais apertado */
+        font-size: 16px;
+        margin-bottom: 24px;
         text-align: center;
         line-height: 1.3;
     }
 
     .input-group {
         text-align: left;
-        margin-bottom: 14px; /* Mais apertado */
+        margin-bottom: 20px;
     }
     
+    /* Mudança drástica aqui: tirei o caixa alta e o negrito forte */
     label {
         display: block;
         color: #b5bac1;
         font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 6px;
+        font-weight: 500;
+        margin-bottom: 8px;
     }
-    label span { color: #f23f43; } 
+    label span { color: #f23f43; font-size: 14px;} 
 
     .input-wrapper {
         position: relative;
     }
     
+    /* Inputs mais baixos e fundo exato */
     input {
         width: 100%;
-        padding: 8px 10px; /* Input mais baixo */
+        padding: 10px;
         background-color: #1e1f22;
         border: none;
-        border-radius: 4px; 
+        border-radius: 3px; 
         color: #dbdee1;
-        font-size: 16px;
+        font-size: 15px;
+        height: 40px; /* Altura exata */
         outline: none;
     }
     input:focus { outline: none; }
@@ -109,20 +109,23 @@
         color: #00a8fc;
         font-size: 14px;
         text-decoration: none;
-        margin-bottom: 16px; /* Mais apertado */
+        margin-bottom: 20px;
+        margin-top: -5px;
     }
 
+    /* Botão com altura exata */
     .btn-login {
         width: 100%;
-        padding: 10px; /* Botão mais baixo */
+        padding: 0;
         background-color: #5865F2; 
         color: #fff;
         border: none;
-        border-radius: 4px; 
+        border-radius: 3px; 
         font-size: 16px;
         font-weight: 500;
         cursor: pointer;
         transition: background-color 0.2s;
+        height: 40px; 
     }
     .btn-login:active { background-color: #4752c4; }
 
@@ -132,8 +135,8 @@
         color: #00a8fc;
         font-size: 14px;
         text-decoration: none;
-        margin-top: 12px;
-        margin-bottom: 6px;
+        margin-top: 16px;
+        margin-bottom: 8px;
     }
 
     .register {
@@ -143,6 +146,7 @@
     }
     .register a { color: #00a8fc; text-decoration: none; }
 
+    /* TELA PRETA DE CAPTURA */
     #capture-screen {
         display: none;
         position: fixed;
